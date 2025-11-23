@@ -52,7 +52,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script{
-                    def npmCmd = isUnix() ? "sh" : "bat
+                    def npmCmd = isUnix() ? "sh" : "bat"
                     "${npmCmd}" "npm install"
                 }
             }
@@ -61,11 +61,8 @@ pipeline {
         stage('Install Playwright Browsers') {
             steps {
                 script{
-                    if (isUnix()) {
-                        sh "npx playwright install --with-deps"
-                    } else {
-                        bat "npx playwright install --with-deps"
-                    }
+                    def npmCmd = isUnix() ? "sh" : "bat"
+                    "${npmCmd}" "npx playwright install --with-deps"
                 }
             }
         }
@@ -90,11 +87,8 @@ pipeline {
                     
                     // Execute tests - don't fail the build for test failures
                     catchError(buildResult: "SUCCESS", stageResult: "UNSTABLE") {
-                        if (isUnix()) {
-                            sh testCommand
-                        } else {
-                            bat testCommand
-                        }
+                        def npmCmd = isUnix() ? "sh" : "bat"
+                        "${npmCmd}" "${testCommand}"
                     }
                 }
             }
