@@ -172,7 +172,7 @@ https://www.jenkins.io/doc/
 * New Item → Pipeline
 * Definition : Pipeline script from SCM
 * SCM : Git
-* Repository URL : `https://github.com/Ndongie/playwright-image-recognition-demo.git`
+* Repository URL : `hhttps://github.com/Ndongie/playwright-image-recognition-demo.git`
 * Script Path : `Jenkinsfile`
 
 #### Paramètres de build Jenkins
