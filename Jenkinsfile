@@ -71,10 +71,24 @@ pipeline {
             steps {
                 script {
                     def testCommand = "npx playwright test"
+                    def project= ""
 
                     // Add suite if not all
                     if (params.BROWSER != 'all') {
-                        testCommand += " --project \"${params.BROWSER}\""
+
+                        if(params.BROWSER == 'edge') {
+                            project = "Microsoft_Edge"
+                        } else if (params.BROWSER == 'safari') {
+                            project = "webkit"
+                        } 
+                        else if(params.BROWSER == 'firefox'){
+                            project = "firefox"
+                        }
+                        else {
+                            project = "chromium"
+                        }
+
+                        testCommand += " --project \"${project}\""
                     }
 
                     if (params.HEADLESS.toBoolean()) {
