@@ -1,0 +1,5 @@
+{
+  "names": ["bergeronnette_printaniere.jpeg", "chevalier_aboyeur.jpeg", "tarin_triste.jpeg"],
+  "expectedMatch": 90,
+  "imageSite": "https://www.oiseaux.net/"
+}

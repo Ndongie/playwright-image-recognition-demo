@@ -1,0 +1,29 @@
+{
+  "name": "playwright_image_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+ "scripts": {
+    "all": "npx playwright test",
+    "all:headless": "npx playwright test --headed",
+    "chrome": "npx playwright test --project chromium",
+    "firefox": "npx playwright test --project firefox",
+    "safari": "npx playwright test --project webkit",
+    "edge": "npx playwright test --project Microsoft_Edge",
+    "rapport-playwright": "npx playwright show-report",
+    "rapport-allure": "allure serve allure-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
+    "chalk": "^5.6.2",
+    "winston": "^3.18.3"
+  }
+}
+
