@@ -9,7 +9,7 @@ pipeline {
     parameters {
         choice(
             name: 'BROWSER',
-            choices: ['all', 'chrome', 'firefox', 'safari', 'egde'],
+            choices: ['all', 'chrome', 'firefox', 'safari', 'edge'],
             description: 'Selectionez le navigateur pour exécuter les tests'
         )
         booleanParam (
@@ -52,13 +52,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script{
-                     if (isUnix()) {
-                        sh "npm ci"
-                        sh "npm install"
-                    } else {
-                        bat "npm ci"
-                        bat "npm install"
-                    }
+                    def npmCmd = isUnix() ? "sh" : "bat
+                    "${npmCmd}" "npm install"
                 }
             }
         }
